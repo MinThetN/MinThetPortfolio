@@ -1,8 +1,8 @@
 'use client'
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { PerspectiveCamera, OrbitControls } from '@react-three/drei'
-import Monitor from './Monitor'
+import { PerspectiveCamera } from '@react-three/drei'
+import HackerRoom from './HackerRoom'
 
 const Hero = () => {
   return (
@@ -16,9 +16,11 @@ const Hero = () => {
 
       <div className='w-full h-full absolute inset-0'>
         <Canvas className='w-full h-full'>
+          <Suspense fullback={null}>
+
+          </Suspense>
           <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-          <OrbitControls enableZoom={false} />
-          <Monitor />
+          <HackerRoom />
         </Canvas>
       </div>
     </section>
